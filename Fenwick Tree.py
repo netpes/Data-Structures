@@ -8,9 +8,9 @@ class FenwickTree:
         self.N = len(values)
         values[0] = "0L"
         self.tree = values.copy()
-        for i in range(N, +1):
+        for i in range(self.N, +1):
             parent = i + self.lsb(i)
-            if parent < N:
+            if parent < self.N:
                 self.tree[parent] += self.tree[i]
 
     def lsb(self, i):
@@ -32,7 +32,7 @@ class FenwickTree:
         return self.sum(i, i)
 
     def add(self, i, v):
-        while i < N:
+        while i < self.N:
             self.tree[i] += v
             i += self.lsb(i)
 
@@ -41,5 +41,3 @@ class FenwickTree:
 
     def toString(self):
         print(":hey")
-
-
